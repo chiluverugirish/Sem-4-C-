@@ -1,0 +1,86 @@
+#include<iostream>
+using namespace std;
+class Node{
+    public:
+    string name;
+    Node *next;
+    Node(string value){
+        name=value;
+        next=nullptr;
+    }
+    ~Node(){
+        cout<<"Destructor called";
+    }
+};
+class SingleLinkedList{
+    public:
+    Node *head;
+    SingleLinkedList(){
+        head=nullptr;
+    }
+    void add(string name){
+        Node *n=new Node(name);
+        if(head==nullptr){
+            head=n;
+            return;
+        }
+        Node *temp=head;
+        while(temp->next!=nullptr){
+            temp=temp->next;
+        }
+        temp->next=n;
+    }
+    void display(){
+        Node *j=head;
+        while(j->next!=nullptr){
+            cout<<j->name<<" ";
+            j=j->next;
+        }
+        cout<<j->name;
+    }
+    void addAfter(string newName,string m){
+        Node *nn=new Node(newName);
+        Node *temp=head;
+        while(temp->name!=m){
+            temp=temp->next;
+        }
+        nn->next=temp->next;
+        temp->next=nn;
+    }
+    // void addBefore(string newName,string m){
+    //     Node *nn=new Node(newName);
+    //     Node *temp=head;
+    //     while(temp->name!=m){
+    //         temp=temp->next;
+    //     }
+    //     nn->next
+    // }
+    void addBefore(string newName,string m){
+        Node *nn = new Node(newName);
+        Node
+    }
+    void removen(string m){
+        Node *j=head;
+        Node *p=nullptr;
+        while(j!=nullptr){
+            if(j->name==m){
+                p->next=j->next;
+            }
+            p=j;
+            j=j->next;
+        }
+        
+    }
+}; 
+int main(){
+    SingleLinkedList *lis = new SingleLinkedList();
+    lis->add("a");
+    lis->add("b");
+    lis->add("c");
+    // lis->display();
+    lis->addAfter("z","b");
+    lis->display();
+    cout<<"\n";
+    lis->removen("z");
+    lis->display();
+}
