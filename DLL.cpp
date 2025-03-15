@@ -43,6 +43,7 @@ class DLL{
             cout<<temp->data<<"  ";
             temp=temp->next;
         }
+        cout<<"\n";
     }
     void add_after(Node* a,int val){
         Node* temp=head;
@@ -59,6 +60,14 @@ class DLL{
 
     }
     void remove(int val){
+        if(head==nullptr) return;
+        else if(head->next==nullptr){
+            if (head->data==val)
+            {
+                delete head;
+            }
+            return;
+    }
         Node* temp=head;
         while (temp->next!=nullptr)
         {
@@ -73,6 +82,11 @@ class DLL{
         
     }
     void pop(){
+        if(head==nullptr) return;
+        else if(head->next==nullptr){
+            delete head;
+            return;
+    }
         Node* temp=head;
         Node* temp2;
         while ((temp->next)->next!=nullptr)
